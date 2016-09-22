@@ -5,14 +5,14 @@ import sqlite3 as lite
 import sys
 
 con = lite.connect('test.db')
-
+bookname = input("Book Name: ")
 scifi = input ("Is this a Scifi book? y/n :")
 
 with con:
     
     cur = con.cursor()    
     cur.execute ("DROP TABLE IF EXISTS Book_classifier;")
-    cur.execute("CREATE TABLE Book_classifier(Id INT, Name TEXT, Price INT)")
+    cur.execute("CREATE TABLE Book_classifier(Id INT, bookname TEXT, scifi TEXT, )")
     cur.execute("INSERT INTO Book_classifier VALUES(1,'Audi',52642)")
     cur.execute("INSERT INTO Book_classifier VALUES(2,'Mercedes',57127)")
     cur.execute("INSERT INTO Book_classifier VALUES(3,'Skoda',9000)")
